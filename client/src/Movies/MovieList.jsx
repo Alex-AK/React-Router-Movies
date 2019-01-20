@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './Movies.css';
 
 export default class MovieList extends Component {
   constructor(props) {
