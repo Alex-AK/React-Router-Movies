@@ -38,7 +38,7 @@ export default class App extends Component {
           changeSelected={this.changeSelected}
         />
         <Route exact path="/" component={MovieList} />
-        {/* <Route path="/saved" component={SavedList} /> */}
+        <Route path="/movie/:id" component={Movie} />
       </div>
     );
   }
