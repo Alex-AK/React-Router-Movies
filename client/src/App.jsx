@@ -12,7 +12,7 @@ export default class App extends Component {
     this.state = {
       savedList: [],
       selected: 'all',
-      tabs: ['all', 'best picture', 'criterion', 'top 100']
+      tabs: ['all', 'best picture', 'criterion', 'top 100', 'watched']
     };
   }
 

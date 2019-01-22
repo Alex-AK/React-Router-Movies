@@ -23,6 +23,7 @@ a:hover {
   cursor: pointer;
   position: relative;
   margin: 1rem auto;
+  width: 80%;
 }
 
 .movie-director {
