@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import MovieCard from './MovieCard';
+import MoviePage from './MoviePage';
 
 export default class Movie extends Component {
   constructor(props) {
@@ -19,12 +19,12 @@ export default class Movie extends Component {
 
   fetchMovie = id => {
     axios
-      .get(`http://localhost:5000/api/movies/${id}`)
-      .then(response => {
-        this.setState(() => ({ movie: response.data }));
+      .get(`http://www.omdbapi.com/?i=${id}&apikey=ffa9e460`)
+      .then(res => {
+        this.setState(() => ({ movie: res.data }));
       })
-      .catch(error => {
-        console.error(error);
+      .catch(err => {
+        console.error(err);
       });
   };
   // Uncomment this code when you're ready for the stretch problems
@@ -49,10 +49,10 @@ export default class Movie extends Component {
     }
     return (
       <div className="save-wrapper">
-        <MovieCard key={this.state.movie.id} movie={this.state.movie} />
-        <div className="save-button" onClick={this.saveMovie}>
+        <MoviePage movie={this.state.movie} />
+        {/* <div className="save-button" onClick={this.saveMovie}>
           Save
-        </div>
+        </div> */}
       </div>
     );
   }
