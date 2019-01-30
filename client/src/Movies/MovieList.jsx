@@ -8,26 +8,31 @@ export default class MovieList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: []
+      movies: [],
+      imdb: []
     };
   }
 
   componentDidMount() {
+    // axios
+    //   .get('http://localhost:5000/api/movies')
+    //   .then(response => {
+    //     this.setState(() => ({ movies: response.data }));
+    //   })
+    //   .catch(error => {
+    //     console.error('Server Error', error);
+    //   });
     axios
-      .get('http://localhost:5000/api/movies')
-      .then(response => {
-        this.setState(() => ({ movies: response.data }));
-      })
-      .catch(error => {
-        console.error('Server Error', error);
-      });
+      .get('http://localhost:5000/')
+      .then(res => this.setState({ imdb: res.data }))
+      .catch(err => console.log(err));
   }
 
   render() {
     return (
       <div className="movie-list">
-        {this.state.movies.map(movie => (
-          <Link to={`/movie/${movie.id}`} key={movie.id}>
+        {this.state.imdb.map(movie => (
+          <Link to={`/movie/${movie.imdbID}`} key={movie.id}>
             <MovieCard key={movie.id} movie={movie} />
           </Link>
         ))}

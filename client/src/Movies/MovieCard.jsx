@@ -1,24 +1,27 @@
 import React from 'react';
 
 function MovieCard({ movie }) {
-  const { title, director, metascore, stars } = movie;
+  const { name, year, rating, stars, poster } = movie;
 
   return (
     <div className="movie-card">
-      <h2>{title}</h2>
-      <div className="movie-director">
-        Director: <em>{director}</em>
+      <img className="poster" src={poster} alt={name} />
+      <div className="card-text">
+        <h2>{name}</h2>
+        <div className="movie-director">
+          Year: <em>{year}</em>
+        </div>
+        <div className="movie-metascore">
+          Metascore: <strong>{rating}</strong>
+        </div>
       </div>
-      <div className="movie-metascore">
-        Metascore: <strong>{metascore}</strong>
-      </div>
-      <h3>Actors</h3>
+      {/* <h3>Actors</h3>
 
       {stars.map(star => (
         <div key={star} className="movie-star">
           {star}
         </div>
-      ))}
+      ))} */}
     </div>
   );
 }
